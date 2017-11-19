@@ -11,8 +11,8 @@ import (
 	"net/http"
 	"regexp"
 
-	"github.com/alexellis/faas/gateway/requests"
-	"github.com/kenfdev/faas-rancher/rancher"
+	"github.com/openfaas-incubator/faas-rancher/rancher"
+	"github.com/openfaas/faas/gateway/requests"
 	"github.com/rancher/go-rancher/v2"
 )
 

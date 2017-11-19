@@ -2,6 +2,7 @@ package handlers
 
 import "net/http"
 
-type HttpDoer interface {
+// HTTPDoer is a Http Wrapper
+type HTTPDoer interface {
 	Do(req *http.Request) (*http.Response, error)
 }

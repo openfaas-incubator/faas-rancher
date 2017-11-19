@@ -3,11 +3,11 @@ faas-rancher
 
 ![OpenFaaS on Rancher](https://pbs.twimg.com/media/DI-IU-1UIAACfYe.png)
 
-This is a plugin to enable Rancher as a [FaaS](https://github.com/alexellis/faas) backend.
+This is a plugin to enable Rancher as a [FaaS](https://github.com/openfaas/faas) backend.
 
-[FaaS](https://github.com/alexellis/faas) is an event-driven serverless framework for containers. Any container for Windows or Linux can be leveraged as a serverless function. FaaS is quick and easy to deploy (less than 60 secs) and lets you avoid writing boiler-plate code.
+[FaaS](https://github.com/openfaas/faas) is an event-driven serverless framework for containers. Any container for Windows or Linux can be leveraged as a serverless function. FaaS is quick and easy to deploy (less than 60 secs) and lets you avoid writing boiler-plate code.
 
-If you'd like to know more about the FaaS project head over to - https://github.com/alexellis/faas
+If you'd like to know more about the FaaS project head over to - https://github.com/openfaas/faas
 
 The code in this repository is a daemon or micro-service which can provide the basic functionality the FaaS Gateway requires:
 

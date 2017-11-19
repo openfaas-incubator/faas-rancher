@@ -12,19 +12,15 @@ import (
 	"time"
 
 	"io/ioutil"
+
+	"github.com/openfaas/faas/gateway/requests"
 )
 
 // MakeProxy creates a proxy for HTTP web requests which can be routed to a function.
-func MakeProxy(httpDoer HttpDoer, stackName string) VarsHandler {
+func MakeProxy(httpDoer HTTPDoer, stackName string) VarsHandler {
 
 	return func(w http.ResponseWriter, r *http.Request, vars map[string]string) {
 		defer r.Body.Close()
-
-		if r.Method != "POST" {
-			// Requests other than POST are not suppored yet
-			w.WriteHeader(http.StatusBadRequest)
-			return
-		}
 
 		service := vars["name"]
 
@@ -42,7 +38,8 @@ func MakeProxy(httpDoer HttpDoer, stackName string) VarsHandler {
 
 		url := fmt.Sprintf("http://%s.%s:%d/", service, stackName, watchdogPort)
 
-		request, _ := http.NewRequest("POST", url, bytes.NewReader(requestBody))
+		requests.NewForwardRequest(r.Method, *r.URL)
+		request, _ := http.NewRequest(r.Method, url, bytes.NewReader(requestBody))
 
 		copyHeaders(&request.Header, &r.Header)
 

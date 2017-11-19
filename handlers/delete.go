@@ -8,8 +8,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/alexellis/faas/gateway/requests"
-	"github.com/kenfdev/faas-rancher/rancher"
+	"github.com/openfaas-incubator/faas-rancher/rancher"
+	"github.com/openfaas/faas/gateway/requests"
 )
 
 // MakeDeleteHandler delete a function

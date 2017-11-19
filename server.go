@@ -10,10 +10,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/alexellis/faas-provider"
-	bootTypes "github.com/alexellis/faas-provider/types"
-	"github.com/kenfdev/faas-rancher/handlers"
-	"github.com/kenfdev/faas-rancher/rancher"
+	"github.com/openfaas-incubator/faas-rancher/handlers"
+	"github.com/openfaas-incubator/faas-rancher/rancher"
+	bootstrap "github.com/openfaas/faas-provider"
+	bootTypes "github.com/openfaas/faas-provider/types"
 )
 
 const (

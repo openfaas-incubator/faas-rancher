@@ -9,9 +9,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/kenfdev/faas-rancher/mocks"
-	"github.com/kenfdev/faas/gateway/requests"
-	"github.com/rancher/go-rancher/v2"
+	"github.com/openfaas/faas/gateway/requests"
+	"github.com/openfaas-incubator/faas-rancher/mocks"
+	client "github.com/rancher/go-rancher/v2"
 	"github.com/stretchr/testify/assert"
 )
 

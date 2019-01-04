@@ -9,7 +9,7 @@ import (
 	"net/http"
 
 	"github.com/alexellis/faas/gateway/requests"
-	"github.com/kenfdev/faas-rancher/rancher"
+	"github.com/openfaas-incubator/faas-rancher/rancher"
 )
 
 // MakeDeleteHandler delete a function

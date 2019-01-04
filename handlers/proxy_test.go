@@ -10,7 +10,7 @@ import (
 
 	"github.com/stretchr/testify/mock"
 
-	"github.com/kenfdev/faas-rancher/mocks"
+	"github.com/openfaas-incubator/faas-rancher/mocks"
 	"github.com/stretchr/testify/assert"
 )
 

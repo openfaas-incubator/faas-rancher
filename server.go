@@ -10,18 +10,19 @@ import (
 	"os"
 	"time"
 
-	"github.com/alexellis/faas-provider"
+	bootstrap "github.com/alexellis/faas-provider"
 	bootTypes "github.com/alexellis/faas-provider/types"
-	"github.com/kenfdev/faas-rancher/handlers"
-	"github.com/kenfdev/faas-rancher/rancher"
+	"github.com/openfaas-incubator/faas-rancher/handlers"
+	"github.com/openfaas-incubator/faas-rancher/rancher"
 )
 
 const (
-	// TimeoutSeconds seconds untile timeout for http client
+	// TimeoutSeconds used for http client
 	TimeoutSeconds = 2
 )
 
 func main() {
+
 	functionStackName := os.Getenv("FUNCTION_STACK_NAME")
 	cattleURL := os.Getenv("CATTLE_URL")
 	cattleAccessKey := os.Getenv("CATTLE_ACCESS_KEY")
@@ -57,6 +58,7 @@ func main() {
 			ExpectContinueTimeout: 1500 * time.Millisecond,
 		},
 	}
+
 	bootstrapHandlers := bootTypes.FaaSHandlers{
 		FunctionProxy:  handlers.MakeProxy(&proxyClient, config.FunctionsStackName).ServeHTTP,
 		DeleteHandler:  handlers.MakeDeleteHandler(rancherClient).ServeHTTP,
@@ -65,6 +67,8 @@ func main() {
 		ReplicaReader:  handlers.MakeReplicaReader(rancherClient).ServeHTTP,
 		ReplicaUpdater: handlers.MakeReplicaUpdater(rancherClient).ServeHTTP,
 	}
+
+	// Todo: AE - parse port and parse timeout from env-vars
 	var port int
 	port = 8080
 	bootstrapConfig := bootTypes.FaaSConfig{
@@ -74,5 +78,4 @@ func main() {
 	}
 
 	bootstrap.Serve(&bootstrapHandlers, &bootstrapConfig)
-
 }

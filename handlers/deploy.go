@@ -12,8 +12,8 @@ import (
 	"regexp"
 
 	"github.com/alexellis/faas/gateway/requests"
-	"github.com/kenfdev/faas-rancher/rancher"
-	"github.com/rancher/go-rancher/v2"
+	"github.com/openfaas-incubator/faas-rancher/rancher"
+	client "github.com/rancher/go-rancher/v2"
 )
 
 // ValidateDeployRequest validates that the service name is valid for Kubernetes

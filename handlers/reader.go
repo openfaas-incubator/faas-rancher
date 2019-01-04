@@ -8,7 +8,7 @@ import (
 	"net/http"
 
 	"github.com/alexellis/faas/gateway/requests"
-	"github.com/kenfdev/faas-rancher/rancher"
+	"github.com/openfaas-incubator/faas-rancher/rancher"
 )
 
 // MakeFunctionReader handler for reading functions deployed in the cluster as deployments.

@@ -1,13 +1,14 @@
 faas-rancher
+
 ===========
 
-![OpenFaaS on Rancher](https://pbs.twimg.com/media/DI-IU-1UIAACfYe.png)
+![OpenFaaS on Rancher 1.0](https://pbs.twimg.com/media/DI-IU-1UIAACfYe.png)
 
-This is a plugin to enable Rancher as a [FaaS](https://github.com/alexellis/faas) backend.
+This is a plugin to enable Rancher 1.0 as an [OpenFaaS](https://www.openfaas.com/) backend.
 
-[FaaS](https://github.com/alexellis/faas) is an event-driven serverless framework for containers. Any container for Windows or Linux can be leveraged as a serverless function. FaaS is quick and easy to deploy (less than 60 secs) and lets you avoid writing boiler-plate code.
+[OpenFaaS](https://www.openfaas.com/) is an event-driven serverless framework for containers. Any container for Windows or Linux can be leveraged as a serverless function. FaaS is quick and easy to deploy (less than 60 secs) and lets you avoid writing boiler-plate code.
 
-If you'd like to know more about the FaaS project head over to - https://github.com/alexellis/faas
+If you'd like to know more about the OpenFaaS project head over to - https://www.openfaas.com/
 
 The code in this repository is a daemon or micro-service which can provide the basic functionality the FaaS Gateway requires:
 
@@ -22,6 +23,6 @@ Any other metrics or UI components will be maintained separately in the main Faa
 
 For now, [this blog post](https://medium.com/cloud-academy-inc/openfaas-on-rancher-684650cc078e) shows how you can deploy OpenFaaS on Rancher via the Catalog.
 
-### Get started with the code
+### Status
 
-Under construction...
+This provider targets Rancher 1.0. Since Rancher 1.0 [is being deprecated](https://rancher.com/docs/rancher/v2.x/en/faq/) this repository is now in maintenance mode. Please see the [OpenFaaS provider for Kubernetes](https://github.com/openfaas/faas-netes) which works with Rancher 2.0.

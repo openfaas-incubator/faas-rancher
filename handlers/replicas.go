@@ -85,6 +85,8 @@ func MakeReplicaReader(client rancher.BridgeClient) VarsHandler {
 			return
 		}
 
+		found.AvailableReplicas = found.Replicas
+
 		functionBytes, _ := json.Marshal(found)
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(200)

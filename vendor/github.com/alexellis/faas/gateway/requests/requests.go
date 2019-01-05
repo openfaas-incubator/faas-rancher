@@ -60,6 +60,9 @@ type Function struct {
 	InvocationCount float64 `json:"invocationCount"` // TODO: shouldn't this be int64?
 	Replicas        uint64  `json:"replicas"`
 	EnvProcess      string  `json:"envProcess"`
+
+	// AvailableReplicas is the count of replicas ready to receive invocations as reported by the back-end
+	AvailableReplicas uint64 `json:"availableReplicas"`
 }
 
 // AsyncReport is the report from a function executed on a queue worker.

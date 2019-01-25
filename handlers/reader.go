@@ -7,8 +7,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/alexellis/faas/gateway/requests"
 	"github.com/openfaas-incubator/faas-rancher/rancher"
+	"github.com/openfaas/faas/gateway/requests"
 )
 
 // MakeFunctionReader handler for reading functions deployed in the cluster as deployments.
@@ -50,10 +50,11 @@ func getServiceList(client rancher.BridgeClient) ([]requests.Function, error) {
 			// filter to faas function services
 			replicas := uint64(service.Scale)
 			function := requests.Function{
-				Name:            service.Name,
-				Replicas:        replicas,
-				Image:           service.LaunchConfig.ImageUuid,
-				InvocationCount: 0,
+				Name:              service.Name,
+				Replicas:          replicas,
+				AvailableReplicas: replicas,
+				Image:             service.LaunchConfig.ImageUuid,
+				InvocationCount:   0,
 			}
 			functions = append(functions, function)
 

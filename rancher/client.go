@@ -6,7 +6,7 @@ package rancher
 import (
 	"fmt"
 
-	"github.com/rancher/go-rancher/v2"
+	client "github.com/rancher/go-rancher/v2"
 )
 
 // BridgeClient is the interface for Rancher API
@@ -16,6 +16,8 @@ type BridgeClient interface {
 	CreateService(spec *client.Service) (*client.Service, error)
 	DeleteService(spec *client.Service) error
 	UpdateService(spec *client.Service, updates map[string]string) (*client.Service, error)
+	UpgradeService(spec *client.Service, upgrade *client.ServiceUpgrade) (*client.Service, error)
+	FinishUpgradeService(spec *client.Service) (*client.Service, error)
 }
 
 // Client is the REST client type
@@ -127,6 +129,24 @@ func (c *Client) DeleteService(spec *client.Service) error {
 // UpdateService upgrades the specified service in rancher
 func (c *Client) UpdateService(spec *client.Service, updates map[string]string) (*client.Service, error) {
 	service, err := c.rancherClient.Service.Update(spec, updates)
+	if err != nil {
+		return nil, err
+	}
+	return service, nil
+}
+
+// UpgradeService starts service upgrade of the specified service in rancher
+func (c *Client) UpgradeService(spec *client.Service, upgrade *client.ServiceUpgrade) (*client.Service, error) {
+	service, err := c.rancherClient.Service.ActionUpgrade(spec, upgrade)
+	if err != nil {
+		return nil, err
+	}
+	return service, nil
+}
+
+// FinishUpgradeService finishes service upgrade of the specified service in rancher
+func (c *Client) FinishUpgradeService(spec *client.Service) (*client.Service, error) {
+	service, err := c.rancherClient.Service.ActionFinishupgrade(spec)
 	if err != nil {
 		return nil, err
 	}

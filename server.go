@@ -10,10 +10,10 @@ import (
 	"os"
 	"time"
 
-	bootstrap "github.com/alexellis/faas-provider"
-	bootTypes "github.com/alexellis/faas-provider/types"
 	"github.com/openfaas-incubator/faas-rancher/handlers"
 	"github.com/openfaas-incubator/faas-rancher/rancher"
+	bootstrap "github.com/openfaas/faas-provider"
+	bootTypes "github.com/openfaas/faas-provider/types"
 )
 
 const (
@@ -66,6 +66,10 @@ func main() {
 		FunctionReader: handlers.MakeFunctionReader(rancherClient).ServeHTTP,
 		ReplicaReader:  handlers.MakeReplicaReader(rancherClient).ServeHTTP,
 		ReplicaUpdater: handlers.MakeReplicaUpdater(rancherClient).ServeHTTP,
+		UpdateHandler:  handlers.MakeUpdateHandler(rancherClient).ServeHTTP,
+		Health:         handlers.MakeHealthHandler(),
+		InfoHandler:    handlers.MakeInfoHandler("0.8.1", ""),
+		SecretHandler:  handlers.MakeSecretHandler(),
 	}
 
 	// Todo: AE - parse port and parse timeout from env-vars

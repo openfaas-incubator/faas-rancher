@@ -10,9 +10,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/alexellis/faas/gateway/requests"
 	"github.com/openfaas-incubator/faas-rancher/rancher"
 	"github.com/openfaas-incubator/faas-rancher/types"
+	"github.com/openfaas/faas/gateway/requests"
 )
 
 // MakeReplicaUpdater updates desired count of replicas
